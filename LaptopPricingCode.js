@@ -1,129 +1,87 @@
-// var currentDay = function(sp){
-// today = new Date();
-// var dd = today.getDate();
-// var mm = today.getMonth()+1; //As January is 0.
-// var yyyy = today.getFullYear();
-
-// if(dd<10) dd='0'+dd;
-// if(mm<10) mm='0'+mm;
-// return (mm+sp+dd+sp+yyyy);
-// };
-// console.log(currentDay('/'));
-// console.log(Date.now())
-
-//  var purchaseDate = {pDate: parseInt(document.getElementById("purchaseDateMac").value) };
-// var currentDate = Date.now()
-
-
-// function calcAge(){
-//     // var purchaseDate = {pDate: parseInt(document.getElementById("purchaseDateMac").value) };
-//     // var currentDate = Date.now()
-//     // console.log(currentDate)
-// }
-
-// console.log(currentDate)
-// var parsedUnixTime = new Date('24th January 2017').getUnixTime();
-// console.log(parsedUnixTime)
-
-
-
-// Date.prototype.getUnixTime = function() { return this.getTime()/1000|0 };
-// if(!Date.now) Date.now = function() { return new Date(); }
-// Date.time = function() { return Date.now().getUnixTime(); }
-
-
-
-// var someDate =new Date('Wed, 07 Jun 2017 12:00:00 GMT');
-// var buyDate = someDate.getUnixTime();
-// var sellDate   = Date.now();
-
-// console.log(buyDate)
-
-// console.log(quotePrice)
-
-// var laptop = {
-//     quote: quotePrice =purchasePrice * 0.525,
-//     quote2: quotePrice2 = (quotePrice) - ((((quotePrice*0.75) * (quotePrice * 0.525)) /12) * monthsToTake),
-// };
-//         var quotePrice2 = (quotePrice) - ((((quotePrice*0.75) * (quotePrice * 0.525)) /12) * monthsToTake)
-//         console.log(laptop.quote2)
-
-var currentDate = Date.now()
-
-
 function onSubmit() {
+    var purcasePrice, purchaseDate, currentDate, diff, mac, dell, mult1, mult2, mult3, mult4, mult5;
 
-    var purchaseDate = document.getElementById("purchaseDateMac").value;
-    var purchasePrice = document.getElementById("purchasePriceMac").value;
-    var currentDate = Date.now()
-
+    var typeOfLaptop = document.getElementById("TypeOfLaptop").value;
+    purchasePrice = document.getElementById("purchasePrice").value;
+    purchaseDate = document.getElementById("purchaseDate").value;
+    currentDate = Date.now()
     purchaseDate = new Date(purchaseDate).getTime()
-    // console.log(purchaseDate)
-
-    var diff = (((((currentDate - purchaseDate) / 1000) / 60) / 60) / 24) / 30
+    diff = (((((currentDate - purchaseDate) / 1000) / 60) / 60) / 24) / 30
     diff = Math.round(diff)
-    console.log(diff)
-    var quotePrice = purchasePrice * 0.525
-    var quotePrice2 = purchasePrice * 0.315
-    var quotePrice3 = purchasePrice * 0.126
-    var quotePrice4 = purchasePrice * 0.0882
-    var monthlyDeductions1224 = (((purchasePrice * 0.525) - (purchasePrice * 0.315)) / 12)
-    var monthlyDeductions2436 = (((purchasePrice * 0.315) - (purchasePrice * 0.126)) / 12)
-    var monthlyDeductions3648 = (((purchasePrice * 0.126) - (purchasePrice * 0.0882)) / 12)
-    var monthlyDeductions48Plus = (((purchasePrice * 0.0882) - (purchasePrice * 0.06174)) / 12)
+    
+    if (typeOfLaptop === "mac") {
+        mult1 = 0.525;
+        mult2 = 0.315;
+        mult3 = 0.126;
+        mult4 = 0.0882;
+        mult5 = 0.06174;
+    } else if (typeOfLaptop === "dell") {
+        mult1 = 0.375;
+        mult2 = 0.1875;
+        mult3 = 0.09375;
+        mult4 = 0.046875;
+        mult5 = 0.0234375;
+    }
 
-    // console.log(quotePrice, monthlyDeductions1224)
-    // console.log(quotePrice2, monthlyDeductions2436)
+    var obj = {
+        quotePrice: purchasePrice * mult1,
+        quotePrice2: purchasePrice * mult2,
+        quotePrice3: purchasePrice * mult3,
+        quotePrice4: purchasePrice * mult4,
+        quotePrice5: purchasePrice * mult5,
+        monthlyDeductions1224: null,
+        monthlyDeductions2436: null,
+        monthlyDeductions3648: null,
+        monthlyDeductions48Plus: null,
+        monthsToTake: diff - 12,
+        monthsToTake2: diff - 24,
+        monthsToTake3: diff - 36,
+        monthsToTake4: diff - 48
+    }
+
+    obj.monthlyDeductions1224 = (((obj.quotePrice) - (obj.quotePrice2)) / 12.0)
+    obj.monthlyDeductions2436 = (((obj.quotePrice2) - (obj.quotePrice3)) / 12.0)
+    obj.monthlyDeductions3648 = (((obj.quotePrice3) - (obj.quotePrice4)) / 12.0)
+    obj.monthlyDeductions48Plus = (((obj.quotePrice4) - (obj.quotePrice5)) / 12.0)
+
+    doStuff(diff, mult1, mult2, mult3, mult4, mult5, obj)
+
+}
+
+
+function doStuff(diff, mult1, mult2, mult3, mult4, mult5, obj) {
+
     if (diff <= 12) {
-        console.log(quotePrice)
+        var price = obj.quotePrice
+        price = Math.round(price)
+        document.getElementById('Results').innerHTML = "The quoted price for this laptop is £" + price
+
+
     } else if (diff > 12 && diff <= 24) {
-        var monthsToTake = diff - 12
-        console.log(monthsToTake)
-        console.log(quotePrice - (monthlyDeductions1224 * monthsToTake))
-        // console.log(1)
+        var price = (obj.quotePrice - (obj.monthlyDeductions1224 * obj.monthsToTake))
+        price = Math.round(price)
+        document.getElementById('Results').innerHTML = "The quoted price for this laptop is £" + price
+
+
     } else if (diff > 24 && diff <= 36) {
-        var monthsToTake2 = diff - 24
-        console.log(monthsToTake2)
-        console.log(quotePrice2 - (monthlyDeductions2436 * monthsToTake2))
-        // console.log(2)
+        var price = (obj.quotePrice2 - (obj.monthlyDeductions2436 * obj.monthsToTake2))
+        price = Math.round(price)
+        document.getElementById('Results').innerHTML = "The quoted price for this laptop is £" + price
+
+
     } else if (diff > 36 && diff <= 48) {
-        var monthsToTake3 = diff - 36
-        console.log(monthsToTake3)
-        console.log(quotePrice3 - (monthlyDeductions3648 * monthsToTake3))
+        var price = (obj.quotePrice3 - (obj.monthlyDeductions3648 * obj.monthsToTake3))
+        price = Math.round(price)
+        document.getElementById('Results').innerHTML = "The quoted price for this laptop is £" + price
+
+
     } else {
-        var monthsToTake4 = diff - 48
-        console.log (monthsToTake4)
-        console.log(quotePrice4 - (monthlyDeductions48Plus * monthsToTake4))
+       
+        var price = (obj.quotePrice4 - (obj.monthlyDeductions48Plus * obj.monthsToTake4))
+        price = price = Math.round(price)
+        document.getElementById('Results').innerHTML = "The quoted price for this laptop is £" + price
+
+
     }
 
 }
-// var purchasePrice = document.getElementById("purchasePriceMac").value;
-// var currentDate = Date.now()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
