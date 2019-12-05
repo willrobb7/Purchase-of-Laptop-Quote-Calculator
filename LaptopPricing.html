@@ -8,10 +8,17 @@
 </head>
 
 <body>
-    <h1>MacBook</h1>
-    Date Of Purchase: <input type="date" id="purchaseDateMac"><br>
-    Purchase Price: <input type="number" id="purchasePriceMac"><br>
+    <h1>Work Out the Current Quote Price for this Laptop</h1>
+    <hr>
+    <select id="TypeOfLaptop">
+        <option value="mac">mac</option>
+        <option value="dell">dell</option>
+    </select>
+    Date Of Purchase: <input type="date" id="purchaseDate"><br>
+    Purchase Price: <input type="number" id="purchasePrice"><br>
 
     <input type="button" onclick='onSubmit()'' value="submit">
+    
+    <H2 id="Results" ></H2>
 </body>
 </html>
