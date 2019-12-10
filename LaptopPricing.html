@@ -4,21 +4,48 @@
 <head>
     <script src="LaptopPricingCode.js"></script>
     <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Raleway:100,200,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <a href="#" class="button"></a> -->
+
     <title>Work Out the Current Quote Price for this Laptop</title>
+
 </head>
 
-<body>
-    <h1>Work Out the Current Quote Price for this Laptop</h1>
-    <hr>
-    <select id="TypeOfLaptop">
-        <option value="mac">mac</option>
-        <option value="dell">dell</option>
-    </select>
-    Date Of Purchase: <input type="date" id="purchaseDate"><br>
-    Purchase Price: <input type="number" id="purchasePrice"><br>
 
-    <input type="button" onclick='onSubmit()'' value="submit">
-    
-    <H2 id="Results" ></H2>
+<body>
+    <div class="wrapper">
+        <div class="panel">
+            <div class="border">Work Out the Current Quote Price for this Laptop</div>
+            <div class="drop">
+                <select id="TypeOfLaptop">
+                    <option value="mac">mac</option>
+                    <option value="dell">dell</option>
+                </select>
+            </div>
+            <br>
+            <div class="Purchase date and price">
+                <div class="option-box">Date Of Purchase: <input type="date" id="purchaseDate"></div>
+                <br>
+                <div class="option-box">Purchase Price: <input type="number" id="purchasePrice"></div>
+                <br>
+            </div>
+
+            <div class="Booton"><button class="button" onclick='onSubmit()' value="submit">Submit</button></div>
+
+            <div class="results" id="results"></div>
+
+        </div>
+    </div>
+    <div class=>
+        
+    </div>
+       
+    </div>
 </body>
+
 </html>

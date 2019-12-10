@@ -1,0 +1,158 @@
+/* body {
+    background-size: cover;
+    background-position: center;
+    font-family: Lato;
+    font-weight: 300;
+    position: center;
+     height: 100vh;
+    color: #FFFFFF;
+    background-color: #333F48;
+    /* background-image: ); 
+    align-items: center;
+    align-self: center;
+} */
+body {
+    background:#000000;
+    font-family: Lato;
+    font-weight: 300;
+    position: center;
+     height: 100vh;
+    color: #FFFFFF;
+
+  }
+
+/* .border {
+    border: 2px outset rgba(227, 82, 5, 0.98);
+} */
+
+/* .wrapper {
+    height: 33%;
+    width: 33%;
+} */
+
+.results {
+    color: FFFFFF;
+}
+
+.drop {
+    border: #E35205;
+}
+
+.panel {
+    /* margin-left: 25%;
+    margin-top: 15%;
+    margin-right: 25%; */
+    position: center;
+    width: 100%;
+    height: 100%;
+    background-color: grey;
+    border: double 4px transparent;
+    border-radius: 15px;
+    background-image: linear-gradient(#333F48, #E35205), radial-gradient(circle at top left, grey, #FFFFFF);
+    background-origin: border-box;
+    /* background-image: url("https://media.giphy.com/media/EvRj5lfd8ctUY/giphy.gif"); */
+
+    background-clip: content-box, border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    display: table;
+    margin: auto;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+select {
+    background-image: linear-gradient(#FFFFFF, rgb(69, 77, 76)), radial-gradient(circle at top left, grey, #FFFFFF);
+    margin-left: 43%;
+    padding: 40%;
+}
+
+.border {
+    text-align: center;
+    padding: 5%;
+}
+
+.button {
+    /* background-image: linear-gradient(#FFFFFF, rgb(69, 77, 76)), radial-gradient(circle at top left, grey, #FFFFFF); */
+    padding: 5%;
+}
+
+.option-box {
+    text-align: center;
+}
+
+#typeOfLaptop {
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -ms-flex-item-align: center;
+}
+
+input {
+    background-image: linear-gradient(#FFFFFF, #ffffff, radial-gradient(circle at top left, grey, #FFFFFF));
+    border: double 2px transparent;
+    border-radius: 15px;
+    background-image: linear-gradient(#ffffff, #FFFFFF), radial-gradient(circle at top left, grey, #FFFFFF);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    /* background-image: url("https://media.giphy.com/media/EvRj5lfd8ctUY/giphy.gif"); */
+
+}
+
+.results {
+    text-align: center;
+    padding: 10%;
+}
+
+.Booton {
+    padding-top: 5px;
+    padding-left: 39%;
+}
+
+.button {
+    background: #333F48;
+    background-image: -webkit-linear-gradient(top, #333F48, #FFFFFF);
+    background-image: -moz-linear-gradient(top, #333F48, #FFFFFF);
+    background-image: -ms-linear-gradient(top, #333F48, #FFFFFF);
+    background-image: -o-linear-gradient(top, #333F48, #FFFFFF);
+    background-image: linear-gradient(to bottom, #333F48, #FFFFFF);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-family: Lato;
+    font-size: 15px;
+    font-weight: 300px;
+    /* padding: 25px; */
+    box-shadow: 1px 1px 10px 2px #FFFFFF;
+    -webkit-box-shadow: 1px 1px 10px 2px #FFFFFF;
+    -moz-box-shadow: 1px 1px 10px 2px #FFFFFF;
+    text-shadow: 1px 1px 50px #000000;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.button:hover {
+    border: solid #333F48 1px;
+    background: #E35205;
+    background-image: -webkit-linear-gradient(top, #E35205, #FFFFFF);
+    background-image: -moz-linear-gradient(top, #E35205, #FFFFFF);
+    background-image: -ms-linear-gradient(top, #E35205, #FFFFFF);
+    background-image: -o-linear-gradient(top, #E35205, #FFFFFF);
+    background-image: linear-gradient(to bottom, #E35205, #FFFFFF);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+}
